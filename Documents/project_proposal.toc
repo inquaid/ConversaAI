@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Problem Statement}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Proposed Solution}{1}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Project Objectives}{1}{section.2}%
+\contentsline {section}{\numberline {3}Scope}{1}{section.3}%
+\contentsline {subsection}{\numberline {3.1}In-Scope}{1}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Out-of-Scope}{2}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Methodology \& Technology Stack}{2}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{2}{section.5}%
