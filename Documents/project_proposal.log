@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.12)  4 AUG 2025 21:58
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.12)  5 AUG 2025 10:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -285,36 +285,79 @@ File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 \pgfsyssoftpath@bigbuffer@items=\count280
 ) (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
-))
-Package hyperref Info: Option `colorlinks' set `true' on input line 7.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9.
+)) (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen165
+\ESO@tempdimb=\dimen166
+) (/usr/share/texlive/texmf-dist/tex/latex/everypage/everypage.sty
+Package: everypage 2020/10/17 R2.0b Hooks to run on every page
+
+
+Package everypage Warning: Functionality similar to this package has recently
+(everypage)                been implemented in LaTeX. This package is now in
+(everypage)                legacy status.
+(everypage)                Please, don't use it in new documents and packages.
+
+
+Package everypage Warning: You appear to be running a version of LaTeX
+(everypage)                providing the new functionality.
+(everypage)                Doing the best to deliver the original `everypage`
+(everypage)                interface on top of it. Strict equivalence is
+(everypage)                not possible, breakage may occur.
+(everypage)                If truly needed, Use `everypage-1x` to force the
+(everypage)                loading of an older code base.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen167
+\captionmargin@=\dimen168
+\captionwidth=\dimen169
+\caption@tempdima=\dimen170
+\caption@indent=\dimen171
+\caption@parindent=\dimen172
+\caption@hangindent=\dimen173
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count281
+\c@continuedfloat=\count282
+Package caption Info: hyperref package is loaded.
+)
+\c@subfigure=\count283
+\c@subtable=\count284
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 11.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 17.
  (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count281
+\l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box52
 ) (./project_proposal.aux)
 \openout1 = `project_proposal.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -350,7 +393,7 @@ LaTeX Font Info:    ... okay on input line 9.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 9.
+Package hyperref Info: Link coloring ON on input line 17.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -358,27 +401,27 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count282
+\c@section@level=\count286
 )
-LaTeX Info: Redefining \ref on input line 9.
-LaTeX Info: Redefining \pageref on input line 9.
-LaTeX Info: Redefining \nameref on input line 9.
+LaTeX Info: Redefining \ref on input line 17.
+LaTeX Info: Redefining \pageref on input line 17.
+LaTeX Info: Redefining \nameref on input line 17.
  (./project_proposal.out) (./project_proposal.out)
 \@outlinefile=\write4
 \openout4 = `project_proposal.out'.
 
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count283
-\scratchdimen=\dimen165
+\scratchcounter=\count287
+\scratchdimen=\dimen174
 \scratchbox=\box53
-\nofMPsegments=\count284
-\nofMParguments=\count285
+\nofMPsegments=\count288
+\nofMParguments=\count289
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count286
-\MPscratchDim=\dimen166
-\MPnumerator=\count287
-\makeMPintoPDFobject=\count288
+\MPscratchCnt=\count290
+\MPscratchDim=\dimen175
+\MPnumerator=\count291
+\makeMPintoPDFobject=\count292
 \everyMPtoPDFconversion=\toks26
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -386,140 +429,186 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 19.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 27.
  (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 19.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 27.
  (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 19.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 27.
  (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 19.
+(Font)              <14.4> on input line 27.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 19.
+(Font)              <10> on input line 27.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 19.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 27.
+(Font)              <7> on input line 27.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 35.
  (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [1
+)
+<LOGO.png, id=7, 236.885pt x 163.61125pt>
+File: LOGO.png Graphic file (type png)
+<use LOGO.png>
+Package pdftex.def Info: LOGO.png  used on input line 52.
+(pdftex.def)             Requested size: 56.9055pt x 39.30244pt.
+ [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./LOGO.png>]
 
 pdfTeX warning: pdflatex (file ./use_case_diag.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<use_case_diag.pdf, id=20, 453.49423pt x 585.78848pt>
+<use_case_diag.pdf, id=23, 453.49423pt x 585.78848pt>
 File: use_case_diag.pdf Graphic file (type pdf)
 <use use_case_diag.pdf>
-Package pdftex.def Info: use_case_diag.pdf  used on input line 52.
+Package pdftex.def Info: use_case_diag.pdf  used on input line 60.
 (pdftex.def)             Requested size: 362.37569pt x 468.11299pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 60.
+(Font)              <12> on input line 68.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 60.
+(Font)              <8> on input line 68.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 60.
+(Font)              <6> on input line 68.
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--64
+Underfull \hbox (badness 10000) in paragraph at lines 72--72
 []\OT1/lmr/m/n/12 Programming Lan-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 []\OT1/lmr/m/n/12 Rapid de-vel-op-ment,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \OT1/lmr/m/n/12 ex-ten-sive NLP/AI
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
+Underfull \hbox (badness 10000) in paragraph at lines 72--73
 \OT1/lmr/m/n/12 li-braries, ex-cel-lent
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 66--67
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
 \OT1/lmr/m/n/12 form UI, sup-ports
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 \OT1/lmr/m/n/12 gram-mar cor-rec-tion,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 \OT1/lmr/m/n/12 vo-cab-u-lary sug-ges-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 76--77
 \OT1/lmr/m/n/12 tion, con-tex-tual
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 \OT1/lmr/m/n/12 sa-tion ca-pa-bil-i-ties;
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 \OT1/lmr/m/n/12 open-source op-tions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 \OT1/lmr/m/n/12 well sup-ported on
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 []\OT1/lmr/m/n/12 Efficient real-time
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
 \OT1/lmr/m/n/12 mes-sage ex-change
  []
 
 
-Underfull \hbox (badness 1867) in paragraph at lines 72--73
+Underfull \hbox (badness 1867) in paragraph at lines 80--81
 \OT1/lmr/m/n/12 be-tween UI and AI
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
 []\OT1/lmr/m/n/12 Bundles ap-pli-ca-tion
  []
 
 
-Underfull \hbox (badness 3291) in paragraph at lines 74--75
+Underfull \hbox (badness 3291) in paragraph at lines 82--83
 \OT1/lmr/m/n/12 easy de-ploy-ment on
  []
 
-[2 <./use_case_diag.pdf>] [3] [4] (./project_proposal.aux)
+[2 <./use_case_diag.pdf>] [3]
+<openning_screen.png, id=61, 835.12pt x 1858.945pt>
+File: openning_screen.png Graphic file (type png)
+<use openning_screen.png>
+Package pdftex.def Info: openning_screen.png  used on input line 118.
+(pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
+<first_page_listening.png, id=62, 835.12pt x 1858.945pt>
+File: first_page_listening.png Graphic file (type png)
+<use first_page_listening.png>
+Package pdftex.def Info: first_page_listening.png  used on input line 124.
+(pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
+<first_page_speaking.png, id=63, 835.12pt x 1858.945pt>
+File: first_page_speaking.png Graphic file (type png)
+<use first_page_speaking.png>
+Package pdftex.def Info: first_page_speaking.png  used on input line 130.
+(pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
+<iMac_24_inch.png, id=64, 1505.625pt x 1129.21875pt>
+File: iMac_24_inch.png Graphic file (type png)
+<use iMac_24_inch.png>
+Package pdftex.def Info: iMac_24_inch.png  used on input line 155.
+(pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
+ [4 <./openning_screen.png> <./first_page_listening.png> <./first_page_speaking.png>]
+<MacBook_Air_13.png, id=77, 1505.625pt x 1129.21875pt>
+File: MacBook_Air_13.png Graphic file (type png)
+<use MacBook_Air_13.png>
+Package pdftex.def Info: MacBook_Air_13.png  used on input line 166.
+(pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
+ [5 <./iMac_24_inch.png> <./MacBook_Air_13.png>]
+<iPhone_16.png, id=88, 1505.625pt x 1129.21875pt>
+File: iPhone_16.png Graphic file (type png)
+<use iPhone_16.png>
+Package pdftex.def Info: iPhone_16.png  used on input line 179.
+(pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
+<Apple_Watch_Ultra.png, id=89, 1505.625pt x 1129.21875pt>
+File: Apple_Watch_Ultra.png Graphic file (type png)
+<use Apple_Watch_Ultra.png>
+Package pdftex.def Info: Apple_Watch_Ultra.png  used on input line 190.
+(pdftex.def)             Requested size: 158.54152pt x 118.89023pt.
+ [6 <./iPhone_16.png> <./Apple_Watch_Ultra.png>] [7] (./project_proposal.aux)
 Package rerunfilecheck Info: File `project_proposal.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11272 strings out of 480171
- 192781 string characters out of 5894489
- 510677 words of memory out of 5000000
- 29017 multiletter control sequences out of 15000+600000
- 503589 words of font info for 53 fonts, out of 8000000 for 9000
+ 12796 strings out of 480171
+ 222962 string characters out of 5894489
+ 536728 words of memory out of 5000000
+ 30500 multiletter control sequences out of 15000+600000
+ 509478 words of font info for 55 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 94i,8n,92p,536b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb>
-Output written on project_proposal.pdf (4 pages, 108080 bytes).
+ 94i,10n,92p,536b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb>
+Output written on project_proposal.pdf (7 pages, 9833204 bytes).
 PDF statistics:
- 87 PDF objects out of 1000 (max. 8388607)
- 72 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 138 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

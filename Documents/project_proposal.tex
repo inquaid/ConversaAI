@@ -4,7 +4,15 @@
 \usepackage{hyperref}
 \usepackage{svg}
 \usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{everypage}
+\usepackage{subcaption}
+
 \hypersetup{colorlinks=true, urlcolor=blue}
+
+\AddToShipoutPictureBG*{%
+  \put(430,750){\includegraphics[width=2cm]{LOGO.png}}%
+}
 
 \begin{document}
 
@@ -94,6 +102,96 @@ Packaging \& Distribution & PyInstaller \newline or linuxdeployqt & Bundles appl
     \item Full HD display
     \item Broadband internet (25Mbps+), microphone/speakers for voice features
 \end{itemize}
+
+\section*{User Interface Mockups}
+
+The following section highlights the UI design approach of ConversaAI across various platforms, emphasizing a clean, modern, and responsive design.
+
+\subsection*{Mobile App Interface (Main Screens)}
+
+These mockups showcase the primary user experience on mobile devices. From the opening animation to listening and speaking interactions, the design maintains a minimal and user-friendly approach.
+
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{openning_screen.png}
+        \caption{Opening Screen}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{first_page_listening.png}
+        \caption{Listening Mode}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{first_page_speaking.png}
+        \caption{Speaking Mode}
+    \end{subfigure}
+    \caption{Main ConversaAI Mobile Screens: Opening, Listening, and Speaking Modes}
+    \label{fig:mobile_ui}
+\end{figure}
+
+
+\subsection*{Desktop and Laptop Mockups}
+
+To support learners on larger screens, ConversaAI extends its experience to desktop environments. These mockups illustrate how the UI adapts to iMac and MacBook form factors while maintaining core functionality and brand consistency.
+
+% \begin{figure}[h!]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{MacBook_Air_13.png} % <-- Replace with cropped iMac + MacBook part
+%     \caption{ConversaAI on iMac 24 inch and MacBook Air 13}
+%     \label{fig:desktop_ui}
+% \end{figure}
+
+\subsection*{Desktop Mockups (iMac 24 inch)}
+
+The iMac 24 inch mockup demonstrates the scalability and consistency of the app interface on modern macOS devices, ensuring a seamless experience across screen sizes.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{iMac_24_inch.png} % <-- Replace with cropped iMac part
+    \caption{ConversaAI UI on iMac 24 inch}
+    \label{fig:iMac_ui}
+\end{figure}
+
+\subsection*{Laptop Mockups (MacBook Air 13)}
+
+The MacBook Air 13 mockup demonstrates the scalability and consistency of the app interface on modern macOS devices, ensuring a seamless experience across screen sizes.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{MacBook_Air_13.png} % <-- Replace with cropped iPhone part
+    \caption{ConversaAI UI on MacBook Air 13}
+    \label{fig:macbook_ui}
+\end{figure}
+
+\newpage
+
+\subsection*{Mobile Mockups (iPhone 16)}
+
+The iPhone mockup demonstrates the scalability and consistency of the app interface on modern iOS devices, ensuring a seamless experience across screen sizes.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\textwidth]{iPhone_16.png} % <-- Replace with cropped iPhone part
+    \caption{ConversaAI UI on iPhone 16}
+    \label{fig:iphone_ui}
+\end{figure}
+
+\subsection*{Wearable Mockup (Apple Watch Ultra)}
+
+To offer quick access and convenience, ConversaAI is also envisioned for wearable devices. The mockup below shows a simplified interface suitable for short interactions and pronunciation practice on the Apple Watch.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.35\textwidth]{Apple_Watch_Ultra.png} % <-- Replace with cropped Apple Watch
+    \caption{ConversaAI on Apple Watch Ultra}
+    \label{fig:watch_ui}
+\end{figure}
+
 
 \section*{Expected Outcomes}
 
