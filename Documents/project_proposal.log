@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.12)  5 AUG 2025 10:22
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2025.5.12)  11 AUG 2025 12:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -461,13 +461,11 @@ Package pdftex.def Info: LOGO.png  used on input line 52.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./LOGO.png>]
-
-pdfTeX warning: pdflatex (file ./use_case_diag.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<use_case_diag.pdf, id=23, 453.49423pt x 585.78848pt>
-File: use_case_diag.pdf Graphic file (type pdf)
-<use use_case_diag.pdf>
-Package pdftex.def Info: use_case_diag.pdf  used on input line 60.
-(pdftex.def)             Requested size: 362.37569pt x 468.11299pt.
+<Use_case_diagram.png, id=23, 453.6147pt x 585.8688pt>
+File: Use_case_diagram.png Graphic file (type png)
+<use Use_case_diagram.png>
+Package pdftex.def Info: Use_case_diagram.png  used on input line 60.
+(pdftex.def)             Requested size: 362.37569pt x 468.04309pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 68.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -554,40 +552,40 @@ Underfull \hbox (badness 3291) in paragraph at lines 82--83
 \OT1/lmr/m/n/12 easy de-ploy-ment on
  []
 
-[2 <./use_case_diag.pdf>] [3]
-<openning_screen.png, id=61, 835.12pt x 1858.945pt>
+[2 <./Use_case_diagram.png>] [3]
+<openning_screen.png, id=37, 835.12pt x 1858.945pt>
 File: openning_screen.png Graphic file (type png)
 <use openning_screen.png>
 Package pdftex.def Info: openning_screen.png  used on input line 118.
 (pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
-<first_page_listening.png, id=62, 835.12pt x 1858.945pt>
+<first_page_listening.png, id=38, 835.12pt x 1858.945pt>
 File: first_page_listening.png Graphic file (type png)
 <use first_page_listening.png>
 Package pdftex.def Info: first_page_listening.png  used on input line 124.
 (pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
-<first_page_speaking.png, id=63, 835.12pt x 1858.945pt>
+<first_page_speaking.png, id=39, 835.12pt x 1858.945pt>
 File: first_page_speaking.png Graphic file (type png)
 <use first_page_speaking.png>
 Package pdftex.def Info: first_page_speaking.png  used on input line 130.
 (pdftex.def)             Requested size: 144.95303pt x 322.65393pt.
-<iMac_24_inch.png, id=64, 1505.625pt x 1129.21875pt>
+<iMac_24_inch.png, id=40, 1505.625pt x 1129.21875pt>
 File: iMac_24_inch.png Graphic file (type png)
 <use iMac_24_inch.png>
 Package pdftex.def Info: iMac_24_inch.png  used on input line 155.
 (pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
  [4 <./openning_screen.png> <./first_page_listening.png> <./first_page_speaking.png>]
-<MacBook_Air_13.png, id=77, 1505.625pt x 1129.21875pt>
+<MacBook_Air_13.png, id=53, 1505.625pt x 1129.21875pt>
 File: MacBook_Air_13.png Graphic file (type png)
 <use MacBook_Air_13.png>
 Package pdftex.def Info: MacBook_Air_13.png  used on input line 166.
 (pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
  [5 <./iMac_24_inch.png> <./MacBook_Air_13.png>]
-<iPhone_16.png, id=88, 1505.625pt x 1129.21875pt>
+<iPhone_16.png, id=64, 1505.625pt x 1129.21875pt>
 File: iPhone_16.png Graphic file (type png)
 <use iPhone_16.png>
 Package pdftex.def Info: iPhone_16.png  used on input line 179.
 (pdftex.def)             Requested size: 226.48395pt x 169.85796pt.
-<Apple_Watch_Ultra.png, id=89, 1505.625pt x 1129.21875pt>
+<Apple_Watch_Ultra.png, id=65, 1505.625pt x 1129.21875pt>
 File: Apple_Watch_Ultra.png Graphic file (type png)
 <use Apple_Watch_Ultra.png>
 Package pdftex.def Info: Apple_Watch_Ultra.png  used on input line 190.
@@ -598,17 +596,17 @@ Package rerunfilecheck Info: File `project_proposal.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  12796 strings out of 480171
- 222962 string characters out of 5894489
+ 222959 string characters out of 5894489
  536728 words of memory out of 5000000
  30500 multiletter control sequences out of 15000+600000
  509478 words of font info for 55 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  94i,10n,92p,536b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr17.pfb>
-Output written on project_proposal.pdf (7 pages, 9833204 bytes).
+Output written on project_proposal.pdf (7 pages, 1476607 bytes).
 PDF statistics:
- 138 PDF objects out of 1000 (max. 8388607)
- 101 compressed objects within 2 object streams
+ 113 PDF objects out of 1000 (max. 8388607)
+ 76 compressed objects within 1 object stream
  30 named destinations out of 1000 (max. 500000)
  58 words of extra memory for PDF output out of 10000 (max. 10000000)
 

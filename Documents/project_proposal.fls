@@ -727,11 +727,11 @@ INPUT LOGO.png
 INPUT ./LOGO.png
 INPUT ./LOGO.png
 INPUT /var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map
-INPUT ./use_case_diag.pdf
-INPUT ./use_case_diag.pdf
-INPUT use_case_diag.pdf
-INPUT ./use_case_diag.pdf
-INPUT ./use_case_diag.pdf
+INPUT ./Use_case_diagram.png
+INPUT ./Use_case_diagram.png
+INPUT Use_case_diagram.png
+INPUT ./Use_case_diagram.png
+INPUT ./Use_case_diagram.png
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmr8.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/rm-lmr6.tfm
 INPUT /usr/share/texmf/fonts/tfm/public/lm/lmmi12.tfm
