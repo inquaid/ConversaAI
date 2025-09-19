@@ -96,12 +96,15 @@ virtualenv/
 *$py.class
 *.so
 
-# Duplicate code in practice directories
-/lib/prac/
-/lib/tempP/
-/lib/prac/conversaai/
-# Keep only one version of the engine
-/lib/backend/voice_backend/
+# Non-contributing directories (experimental/temporary code)
+# These directories contain code that is duplicated elsewhere or not used in the main project
+/lib/prac/**
+/lib/tempP/**
+# Ensure these folders are completely ignored with all subdirectories
+**/prac/**
+**/tempP/**
+# We're keeping the conversaai_engine as the main engine implementation
+# and removing duplicates like prac/conversaai and backend/voice_backend
 
 # Node.js
 node_modules/
