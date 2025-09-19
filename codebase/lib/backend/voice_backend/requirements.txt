@@ -1,0 +1,7 @@
+openai-whisper
+webrtcvad
+sounddevice
+soundfile
+gTTS
+numpy
+google-generativeai

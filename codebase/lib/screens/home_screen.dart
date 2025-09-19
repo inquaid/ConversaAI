@@ -4,8 +4,8 @@ import '../providers/voice_provider.dart';
 import '../providers/theme_provider.dart';
 import '../widgets/voice_interface.dart';
 import '../widgets/app_header.dart';
-import '../widgets/conversation_feedback.dart';
-import '../widgets/animated_widgets.dart';
+import '../widgets/conversation_list.dart';
+import '../widgets/enhanced_voice_visualizer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,8 +14,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Consumer2<VoiceProvider, ThemeProvider>(
-          builder: (context, voiceProvider, themeProvider, child) {
+        // Only depend on ThemeProvider at the top level to avoid rebuilding the whole tree on voice updates
+        child: Consumer<ThemeProvider>(
+          builder: (context, themeProvider, child) {
             return Container(
               decoration: _buildGradientBackground(
                 context,
@@ -24,42 +25,148 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   // Header with app title and theme toggle
-                  AppHeader(
-                    onThemeToggle: () => themeProvider.toggleTheme(),
-                    isDarkMode: themeProvider.isDarkMode,
-                    onDemoPressed: () => _startDemo(voiceProvider),
+                  Consumer<VoiceProvider>(
+                    child: AppHeader(
+                      onThemeToggle: () => themeProvider.toggleTheme(),
+                      isDarkMode: themeProvider.isDarkMode,
+                      onDemoPressed: () => _startDemo(
+                        // Will be replaced by parent Consumer value via builder
+                        // but provided through the builder below
+                        context.read<VoiceProvider>(),
+                      ),
+                    ),
+                    builder: (context, voiceProvider, header) {
+                      // Use provided header child; we only need voiceProvider for onDemoPressed
+                      return AppHeader(
+                        onThemeToggle: () => themeProvider.toggleTheme(),
+                        isDarkMode: themeProvider.isDarkMode,
+                        onDemoPressed: () => _startDemo(voiceProvider),
+                      );
+                    },
                   ),
 
                   // Main content area
                   Expanded(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24.0),
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 1000),
                       child: Column(
                         children: [
-                          // Conversation feedback area
+                          // Voice visualizer area with enhanced background
+                          Selector<VoiceProvider, VoiceState>(
+                            selector: (_, vp) => vp.currentState,
+                            builder: (context, state, _) {
+                              if (state == VoiceState.idle) {
+                                return const SizedBox(height: 0);
+                              }
+                              return Container(
+                                height: 180,
+                                margin: const EdgeInsets.symmetric(
+                                  horizontal: 24,
+                                  vertical: 8,
+                                ),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(24),
+                                  gradient: LinearGradient(
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                    colors: themeProvider.isDarkMode
+                                        ? [
+                                            Colors.black.withOpacity(0.2),
+                                            Colors.black.withOpacity(0.05),
+                                          ]
+                                        : [
+                                            Colors.white.withOpacity(0.3),
+                                            Colors.white.withOpacity(0.1),
+                                          ],
+                                  ),
+                                  border: Border.all(
+                                    color: Theme.of(
+                                      context,
+                                    ).colorScheme.primary.withOpacity(0.1),
+                                    width: 1,
+                                  ),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Theme.of(
+                                        context,
+                                      ).colorScheme.primary.withOpacity(0.1),
+                                      blurRadius: 20,
+                                      spreadRadius: 0,
+                                      offset: const Offset(0, 8),
+                                    ),
+                                  ],
+                                ),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(24),
+                                  child: RepaintBoundary(
+                                    child: Selector<VoiceProvider, double>(
+                                      selector: (_, vp) => vp.volumeLevel,
+                                      builder: (context, volume, __) =>
+                                          EnhancedVoiceVisualizer(
+                                            voiceState: state,
+                                            volumeLevel: volume,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+
+                          // Conversation history
                           Expanded(
-                            flex: 2,
-                            child: ConversationFeedback(
-                              voiceState: voiceProvider.currentState,
-                              transcribedText: voiceProvider.transcribedText,
-                              responseText: voiceProvider.responseText,
+                            child: RepaintBoundary(
+                              child: Consumer<VoiceProvider>(
+                                builder: (context, vp, _) => ConversationList(
+                                  messages: vp.currentMessages,
+                                  isTyping: vp.isTyping,
+                                  voiceState: vp.currentState,
+                                  currentTranscript: vp.currentTranscript,
+                                ),
+                              ),
                             ),
                           ),
 
-                          // Voice interface (main interaction area)
-                          Expanded(
-                            flex: 3,
-                            child: VoiceInterface(
-                              voiceState: voiceProvider.currentState,
-                              volumeLevel: voiceProvider.volumeLevel,
-                              onMicPressed: () =>
-                                  _handleMicPressed(voiceProvider),
-                              isRecording: voiceProvider.isRecording,
+                          // Voice interface (bottom fixed)
+                          Container(
+                            padding: const EdgeInsets.all(24),
+                            decoration: BoxDecoration(
+                              color: Theme.of(
+                                context,
+                              ).scaffoldBackgroundColor.withOpacity(0.9),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Theme.of(
+                                    context,
+                                  ).shadowColor.withOpacity(0.1),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, -2),
+                                ),
+                              ],
+                            ),
+                            child: RepaintBoundary(
+                              child:
+                                  Selector<
+                                    VoiceProvider,
+                                    (VoiceState, double, bool)
+                                  >(
+                                    selector: (_, vp) => (
+                                      vp.currentState,
+                                      vp.volumeLevel,
+                                      vp.isRecording,
+                                    ),
+                                    builder: (context, tuple, __) =>
+                                        VoiceInterface(
+                                          voiceState: tuple.$1,
+                                          volumeLevel: tuple.$2,
+                                          onMicPressed: () => _handleMicPressed(
+                                            context.read<VoiceProvider>(),
+                                          ),
+                                          isRecording: tuple.$3,
+                                        ),
+                                  ),
                             ),
                           ),
-
-                          // Bottom spacing
-                          const SizedBox(height: 40),
                         ],
                       ),
                     ),

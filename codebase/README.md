@@ -198,6 +198,43 @@ Currently using Material Design icons as placeholders.
 - Flutter analysis passing (only deprecation warnings)
 - Consistent coding standards
 - Comprehensive documentation
+
+## 🧠 Backend (Python) Integration
+
+The conversational AI backend (speech → text → reply → optional TTS) has been migrated from the temporary path `lib/prac/conversaai` to `lib/backend/voice_backend` for clarity.
+
+### Structure
+```
+lib/backend/voice_backend/
+   asr.py          # Whisper transcription
+   audio.py        # (original runtime mic utils – not yet wired in Flutter build)
+   engine.py       # SingleTurnEngine (transcribe/respond logic)
+   engine_invoke.py# CLI helper returning JSON transcript+reply for a WAV
+   llm.py          # Optional Gemini responder
+   nlp.py          # Local feedback / fallback responder
+   tts.py          # gTTS synthesis (not yet invoked from Flutter)
+```
+
+### Dart Bridge
+- `lib/services/ai_backend_service.dart` spawns the Python process (`engine_invoke.py`) for a single-turn response.
+- Current Flutter integration (in `VoiceProvider`) still uses simulated audio text while native audio capture is disabled on Linux; once real recording is restored, pass the recorded WAV path to the backend service.
+
+### Requirements (Python side)
+Install dependencies (example virtualenv):
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r lib/prac/conversaai/requirements.txt  # (reuse original list for now)
+```
+Optional: set `GEMINI_API_KEY` for enhanced LLM replies.
+
+### Next Steps
+1. Re-enable Dart audio recording → produce temp WAV.
+2. Call `AiBackendService.processUtterance(tempWav)` inside `stopListening()`.
+3. Stream partial transcription (future) via a lightweight socket or incremental engine adaptation.
+4. Integrate TTS output playback (either via Flutter `audioplayers` or native backend MP3 decode).
+
+Legacy folder `lib/prac/conversaai` remains for reference; will be removed after full migration.
 - Modular and testable architecture
 - Type-safe code throughout
 

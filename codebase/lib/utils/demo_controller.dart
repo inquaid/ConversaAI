@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'dart:async';
 import '../providers/voice_provider.dart';
 
@@ -63,16 +62,12 @@ class DemoController {
 
 extension VoiceProviderDemo on VoiceProvider {
   void setCustomResponse(String response) {
-    _transcribedText = "Hi, I want to practice speaking English.";
-    _responseText = response;
-    _currentState = VoiceState.speaking;
-    notifyListeners();
+    // Add a user message for demo purposes
+    addUserMessage("Hi, I want to practice speaking English.");
 
-    // Simulate speaking duration
-    Future.delayed(const Duration(seconds: 3), () {
-      _currentState = VoiceState.idle;
-      _volumeLevel = 0.0;
-      notifyListeners();
-    });
+    // Add the assistant response
+    addAssistantMessage(response);
+
+    // No need to manually manage state - the audio service handles this
   }
 }

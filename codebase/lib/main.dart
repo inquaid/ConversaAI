@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'screens/home_screen.dart';
 import 'providers/voice_provider.dart';
 import 'providers/theme_provider.dart';
+import 'providers/auth_provider.dart';
+import 'auth/sign_in.dart';
 
 void main() {
   runApp(const ConversaAIApp());
@@ -18,17 +20,24 @@ class ConversaAIApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => VoiceProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
-          return MaterialApp(
-            title: 'ConversaAI',
-            debugShowCheckedModeBanner: false,
-            theme: _buildLightTheme(),
-            darkTheme: _buildDarkTheme(),
-            themeMode: themeProvider.themeMode,
-            home: const HomeScreen(),
+          return Consumer<AuthProvider>(
+            builder: (context, auth, _) {
+              return MaterialApp(
+                title: 'ConversaAI',
+                debugShowCheckedModeBanner: false,
+                theme: _buildLightTheme(),
+                darkTheme: _buildDarkTheme(),
+                themeMode: themeProvider.themeMode,
+                home: auth.isAuthenticated
+                    ? const HomeScreen()
+                    : const SignInScreen(),
+              );
+            },
           );
         },
       ),

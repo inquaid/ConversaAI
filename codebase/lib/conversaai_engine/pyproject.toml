@@ -1,0 +1,18 @@
+[project]
+name = "conversaai"
+version = "0.1.0"
+description = "ConversaAI backend CLI for English conversation practice"
+authors = [{name = "You"}]
+requires-python = ">=3.9"
+dependencies = [
+  "openai-whisper",
+  "webrtcvad",
+  "sounddevice",
+  "soundfile",
+  "gTTS",
+  "numpy",
+]
+
+[project.scripts]
+conversaai = "conversaai.__main__:main"
+conversaai-list-devices = "conversaai.list_devices:main"

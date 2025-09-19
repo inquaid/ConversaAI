@@ -21,7 +21,7 @@ class VoiceVisualizer extends StatefulWidget {
 class _VoiceVisualizerState extends State<VoiceVisualizer> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 150,
       width: double.infinity,
       child: AnimatedBuilder(

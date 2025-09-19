@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../providers/voice_provider.dart';
-import 'voice_visualizer.dart';
 
 class VoiceInterface extends StatefulWidget {
   final VoiceState voiceState;
@@ -90,39 +89,41 @@ class _VoiceInterfaceState extends State<VoiceInterface>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Voice visualizer
-          if (widget.voiceState != VoiceState.idle)
-            SizedBox(
-              height: 150,
-              child: VoiceVisualizer(
-                voiceState: widget.voiceState,
-                volumeLevel: widget.volumeLevel,
-                waveController: _waveController,
-              ),
-            ),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Status text
+        _buildStatusText(context),
 
-          SizedBox(height: widget.voiceState != VoiceState.idle ? 20 : 40),
+        const SizedBox(height: 16),
 
-          // Main microphone button
-          _buildMicrophoneButton(context),
+        // Microphone button with inline effects
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Left indicator
+            if (widget.voiceState != VoiceState.idle)
+              _buildSideIndicator(context, true),
 
-          const SizedBox(height: 24),
+            // Main microphone button
+            _buildMicrophoneButton(context),
 
-          // Instruction text
-          _buildInstructionText(context),
-        ],
-      ),
+            // Right indicator
+            if (widget.voiceState != VoiceState.idle)
+              _buildSideIndicator(context, false),
+          ],
+        ),
+
+        const SizedBox(height: 12),
+
+        // Instruction text
+        _buildInstructionText(context),
+      ],
     );
   }
 
   Widget _buildMicrophoneButton(BuildContext context) {
-    Color primaryColor = _getMicrophoneColor(context);
+    final primaryColor = _getMicrophoneColor(context);
     bool isActive = widget.voiceState != VoiceState.idle;
 
     return GestureDetector(
@@ -138,8 +139,8 @@ class _VoiceInterfaceState extends State<VoiceInterface>
               boxShadow: [
                 if (isActive)
                   BoxShadow(
-                    color: primaryColor.withOpacity(
-                      0.3 * _pulseAnimation.value,
+                    color: primaryColor.withValues(
+                      alpha: 0.3 * _pulseAnimation.value,
                     ),
                     blurRadius: 30 + (20 * _pulseAnimation.value),
                     spreadRadius: 5 + (10 * _pulseAnimation.value),
@@ -159,7 +160,7 @@ class _VoiceInterfaceState extends State<VoiceInterface>
                   ),
                   border: Border.all(
                     color: isActive
-                        ? Colors.white.withOpacity(0.3)
+                        ? Colors.white.withValues(alpha: 0.3)
                         : Colors.transparent,
                     width: 2,
                   ),
@@ -242,5 +243,73 @@ class _VoiceInterfaceState extends State<VoiceInterface>
       case VoiceState.error:
         return "Tap to try again";
     }
+  }
+
+  Widget _buildStatusText(BuildContext context) {
+    String statusText = _getStatusText();
+
+    return AnimatedSwitcher(
+      duration: const Duration(milliseconds: 300),
+      child: Text(
+        statusText,
+        key: ValueKey(statusText),
+        style: Theme.of(context).textTheme.bodySmall?.copyWith(
+          color: Theme.of(context).colorScheme.onSurface.withOpacity(0.6),
+          fontWeight: FontWeight.w500,
+        ),
+        textAlign: TextAlign.center,
+      ),
+    );
+  }
+
+  String _getStatusText() {
+    switch (widget.voiceState) {
+      case VoiceState.idle:
+        return "Ready to chat";
+      case VoiceState.listening:
+        return "Listening...";
+      case VoiceState.speaking:
+        return "ConversaAI is speaking";
+      case VoiceState.processing:
+        return "Processing...";
+      case VoiceState.error:
+        return "Error occurred";
+    }
+  }
+
+  Widget _buildSideIndicator(BuildContext context, bool isLeft) {
+    if (widget.voiceState == VoiceState.idle) {
+      return const SizedBox.shrink();
+    }
+
+    return AnimatedBuilder(
+      animation: _pulseAnimation,
+      builder: (context, child) {
+        return Container(
+          margin: EdgeInsets.only(
+            left: isLeft ? 0 : 20,
+            right: isLeft ? 20 : 0,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              for (int i = 0; i < 3; i++)
+                Container(
+                  width: 4,
+                  height:
+                      8 +
+                      (widget.volumeLevel * 16) +
+                      (_pulseAnimation.value * 8),
+                  margin: const EdgeInsets.symmetric(horizontal: 1),
+                  decoration: BoxDecoration(
+                    color: _getMicrophoneColor(context).withOpacity(0.6),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }
