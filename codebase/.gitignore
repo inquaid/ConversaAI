@@ -91,6 +91,17 @@ venv/
 env/
 virtualenv/
 **/lib/prac/.venv/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Duplicate code in practice directories
+/lib/prac/
+/lib/tempP/
+/lib/prac/conversaai/
+# Keep only one version of the engine
+/lib/backend/voice_backend/
 
 # Node.js
 node_modules/
