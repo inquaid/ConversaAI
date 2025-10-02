@@ -61,13 +61,14 @@ class WebAudioService {
         'mimeType': 'audio/webm;codecs=opus',
       });
 
-      _mediaRecorder!.onDataAvailable.listen((html.BlobEvent event) {
-        if (event.data != null && event.data!.size > 0) {
-          _recordedChunks.add(event.data!);
+      _mediaRecorder!.addEventListener('dataavailable', (event) {
+        final blobEvent = event as html.BlobEvent;
+        if (blobEvent.data != null && blobEvent.data!.size > 0) {
+          _recordedChunks.add(blobEvent.data!);
         }
       });
 
-      _mediaRecorder!.onStop.listen((_) {
+      _mediaRecorder!.addEventListener('stop', (event) {
         _createRecordingBlob();
       });
 

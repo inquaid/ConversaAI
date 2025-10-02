@@ -41,6 +41,7 @@ dependencies:
   
   # Utils
   flutter_svg: ^2.0.9
+  uuid: ^4.2.2
 
 dev_dependencies:
   flutter_test:

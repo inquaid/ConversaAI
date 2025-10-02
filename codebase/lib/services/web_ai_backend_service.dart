@@ -112,70 +112,92 @@ class AiBackendService {
   }
 
   Future<String> _callGeminiApi(String userText) async {
-    const baseUrl =
-        'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
-    final url = '$baseUrl?key=$geminiApiKey';
+    // Try different model variants that are actually available (October 2025)
+    final modelVariants = [
+      'gemini-flash-latest', // Always points to latest flash model
+      'gemini-2.5-flash', // Fast and efficient
+      'gemini-2.0-flash', // Alternative fast model
+      'gemini-pro-latest', // Always points to latest pro model
+    ];
 
-    final prompt =
-        '''
+    String? errorMessage;
+
+    // Try each model variant
+    for (final model in modelVariants) {
+      try {
+        final baseUrl =
+            'https://generativelanguage.googleapis.com/v1beta/models/$model:generateContent';
+        final url = '$baseUrl?key=$geminiApiKey';
+
+        print('AI Service: Trying model: $model');
+
+        final prompt =
+            '''
 You are an interactive English-speaking companion. Your main goal is to help the user practice English speaking fluency. Always respond in a conversational, natural, and engaging way. Don't just answer—also ask relevant follow-up questions so the conversation flows naturally and lasts longer. Adjust your tone to be friendly and supportive, like a human speaking partner. If the user makes mistakes, gently correct grammar, word choice, or phrasing, but keep the flow natural. Encourage the user to explain thoughts, share stories, or express opinions. Sometimes introduce new words or phrases, explain their meaning, and encourage the user to use them. Keep replies short enough for spoken interaction (2–5 sentences), not long essays.
 
 User said: "$userText"
 ''';
 
-    print('AI Service: Making request to: $baseUrl');
-    print('AI Service: Request payload prepared');
+        final response = await http.post(
+          Uri.parse(url),
+          headers: {'Content-Type': 'application/json'},
+          body: json.encode({
+            'contents': [
+              {
+                'parts': [
+                  {'text': prompt},
+                ],
+              },
+            ],
+            'generationConfig': {'temperature': 0.7, 'maxOutputTokens': 200},
+          }),
+        );
 
-    try {
-      final response = await http.post(
-        Uri.parse(url),
-        headers: {'Content-Type': 'application/json'},
-        body: json.encode({
-          'contents': [
-            {
-              'parts': [
-                {'text': prompt},
-              ],
-            },
-          ],
-          'generationConfig': {'temperature': 0.7, 'maxOutputTokens': 200},
-        }),
-      );
+        print('AI Service: Response status: ${response.statusCode}');
 
-      print('AI Service: Response status: ${response.statusCode}');
-      print('AI Service: Response body: ${response.body}');
+        if (response.statusCode == 200) {
+          final data = json.decode(response.body) as Map<String, dynamic>;
+          final candidates = data['candidates'] as List?;
 
-      if (response.statusCode == 200) {
-        final data = json.decode(response.body) as Map<String, dynamic>;
-        final candidates = data['candidates'] as List?;
+          if (candidates != null && candidates.isNotEmpty) {
+            final content = candidates[0]['content'] as Map<String, dynamic>?;
+            final parts = content?['parts'] as List?;
 
-        if (candidates != null && candidates.isNotEmpty) {
-          final content = candidates[0]['content'] as Map<String, dynamic>?;
-          final parts = content?['parts'] as List?;
-
-          if (parts != null && parts.isNotEmpty) {
-            final text = parts[0]['text'] as String?;
-            print('AI Service: Extracted response: $text');
-            return text?.trim() ?? _getLocalReply(userText);
+            if (parts != null && parts.isNotEmpty) {
+              final text = parts[0]['text'] as String?;
+              print('AI Service: Extracted response: $text');
+              return text?.trim() ?? _getLocalReply(userText);
+            }
           }
+          throw AiBackendException(
+            'No text found in response: ${response.body}',
+          );
         }
-      }
 
-      throw AiBackendException(
-        'Gemini API request failed: ${response.statusCode} - ${response.body}',
-      );
-    } catch (e) {
-      print('AI Service: Exception during API call: $e');
-      rethrow;
+        errorMessage = 'Status ${response.statusCode}: ${response.body}';
+        // Continue to next model if this one failed
+      } catch (e) {
+        if (e is! AiBackendException) {
+          errorMessage = e.toString();
+        }
+        // Continue to next model variant
+        print('AI Service: Model $model failed: $e');
+      }
     }
+
+    // All models failed
+    throw AiBackendException(
+      'All Gemini models failed. Last error: $errorMessage',
+    );
   }
 
   Future<String> _callGeminiApiV1(String userText) async {
+    // Use v1beta instead of v1 - it has better model support
     const baseUrl =
-        'https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent';
+        'https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent';
     final url = '$baseUrl?key=$geminiApiKey';
 
-    print('AI Service: Trying v1 endpoint: $baseUrl');
+    print('AI Service: Trying fallback endpoint: $baseUrl');
 
     final response = await http.post(
       Uri.parse(url),
@@ -210,7 +232,7 @@ User said: "$userText"
     }
 
     throw AiBackendException(
-      'Gemini API V1 request failed: ${response.statusCode} - ${response.body}',
+      'Gemini API fallback request failed: ${response.statusCode} - ${response.body}',
     );
   }
 
