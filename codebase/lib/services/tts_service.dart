@@ -19,15 +19,15 @@ class TtsService {
     try {
       _flutterTts = FlutterTts();
 
-      if (kIsWeb) {
-        // Web-specific TTS settings
+      if (!kIsWeb) {
+        // Native-specific TTS settings (setSharedInstance not supported on web)
         await _flutterTts!.setSharedInstance(true);
       }
 
       // Configure TTS settings
       await _flutterTts!.setLanguage("en-US");
-      await _flutterTts!.setSpeechRate(0.6); // Slightly slower for clarity
-      await _flutterTts!.setVolume(0.8);
+      await _flutterTts!.setSpeechRate(0.95); // Natural conversational pace
+      await _flutterTts!.setVolume(0.9);
       await _flutterTts!.setPitch(1.0);
 
       // Set up completion handler

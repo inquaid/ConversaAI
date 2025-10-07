@@ -50,6 +50,8 @@ class VoiceProvider with ChangeNotifier {
   bool get isRecording => _isRecording;
   bool get isTyping => _isTyping;
   String get currentTranscript => _currentTranscript;
+  String get lastRecognizedText =>
+      _transcribedText.isNotEmpty ? _transcribedText : _currentTranscript;
 
   // Current conversation messages
   List<ChatMessage> get currentMessages => _currentSession?.messages ?? [];

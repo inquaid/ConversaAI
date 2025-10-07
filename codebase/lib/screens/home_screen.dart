@@ -7,6 +7,7 @@ import '../widgets/app_header.dart';
 import '../widgets/conversation_list.dart';
 import '../widgets/enhanced_voice_visualizer.dart';
 import 'ielts_home_screen.dart';
+import 'ielts_speaking_test_home_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -14,16 +15,39 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const IELTSHomeScreen()),
-          );
-        },
-        icon: const Icon(Icons.school),
-        label: const Text('IELTS Exam'),
-        backgroundColor: Theme.of(context).colorScheme.secondary,
+      floatingActionButton: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          FloatingActionButton.extended(
+            heroTag: 'speaking_test',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const IELTSSpeakingTestHomeScreen(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.mic),
+            label: const Text('Speaking Test'),
+            backgroundColor: Colors.green,
+          ),
+          const SizedBox(height: 10),
+          FloatingActionButton.extended(
+            heroTag: 'ielts_exam',
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const IELTSHomeScreen(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.school),
+            label: const Text('IELTS Exam'),
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+          ),
+        ],
       ),
       body: SafeArea(
         // Only depend on ThemeProvider at the top level to avoid rebuilding the whole tree on voice updates

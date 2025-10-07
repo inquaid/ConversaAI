@@ -8,6 +8,7 @@ import 'providers/voice_provider.dart';
 import 'providers/theme_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/ielts_provider.dart';
+import 'providers/ielts_speaking_test_provider.dart';
 import 'auth/sign_in.dart';
 
 void main() {
@@ -25,6 +26,7 @@ class ConversaAIApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AuthProvider()),
         ChangeNotifierProvider(create: (_) => VoiceProvider()),
         ChangeNotifierProvider(create: (_) => IELTSProvider()),
+        ChangeNotifierProvider(create: (_) => IELTSSpeakingTestProvider()),
       ],
       child: Consumer<ThemeProvider>(
         builder: (context, themeProvider, child) {
